@@ -1,6 +1,6 @@
-import React from 'react';
-import dataStore from 'src/Components/folders/Store.js';
-import { useParams } from "react-router-dom"
+import React from "react";
+import dataStore from "../folders/dataStore";
+import { useParams } from "react-router-dom";
 
 export default function Notes() {
     const { notesID } = useParams();
@@ -11,35 +11,22 @@ export default function Notes() {
                     <h3 style={notetitle}>{note.name}</h3>
                     <p style={notecontent}>{note.content}</p>
                 </div>
-            )
+            );
         }
-    })
-    return (
-        <div style={notediv}>
-            {note}
-        </div>
-    )
+    });
+    return <div style={notediv}>{note}</div>;
 }
-
 
 const notediv = {
-    borderStyle: 'solid',
-    borderColor: 'yellow',
-    width: '55%',
-    float: 'right'
-
-
-
-}
-const notediv1 = {
-
-}
+    borderStyle: "solid",
+    borderColor: "yellow",
+    width: "55%",
+    float: "right"
+};
+const notediv1 = {};
 
 const notetitle = {
-    color: 'red'
+    color: "red"
+};
 
-}
-
-const notecontent = {
-
-}
+const notecontent = {};
