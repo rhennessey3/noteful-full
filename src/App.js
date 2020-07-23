@@ -64,7 +64,7 @@ render() {
         <main>
           <Switch>
             <Route exact path="/">
-              <Notes />
+              {/* <Notes /> */}
             </Route>
 
             <Route
@@ -80,7 +80,7 @@ render() {
             />
 
             <Route path="/folder/:folderID">
-              <Notes notes={this.state.notes} />
+              <Notes notes={this.state.notes} notes={notes} />
             </Route>
 
             <Route path="/addfolder">
