@@ -27,7 +27,7 @@ export default function MainNav(props) {
     return (
         <aside className="nav-aside">
             <div className="folderDiv">{folderitem}</div>
-            {/* <div className="noteDiv"> {noteitem}</div> */}
+            <div className="noteDiv"> {noteitem}</div>
             <Link to="/addfolder">create new folder</Link>
             <Link to="/addnote">create new note</Link>
         </aside>

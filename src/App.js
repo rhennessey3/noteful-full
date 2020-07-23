@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react'
+// import React, { Component } from 'react';
 import './App.css';
 import dataStore from './dataStore'
 import Notes from './Components/Notes/Notes'
@@ -14,7 +15,6 @@ state = {
   folders: dataStore.folders,
   notes: dataStore.notes
 };
-  
   addFolder = e => {
     e.preventDefault()
     const { name } = e.target
@@ -56,45 +56,44 @@ render() {
 
 
 
-  return (
-    <Context.Provider
-      value = {value}
-    >
-      <MainNav
-        folders={folders}
+    return (
+      <Context.Provider value={value}>
+        <MainNav
+          folders={folders}
         // <AddFolder  />
-      />
-      <main>
-        <Switch>
+        />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Notes />
+            </Route>
 
-          <Route exact path="/">
-            <Notes/>
-          </Route>
+            <Route
+              path="/note/:noteID"
+              render={routerProps => (
+                <Note
+                  history={routerProps.history}
+                  note={this.state.notes.find(
+                    note => note.id === routerProps.match.params.noteID
+                  )}
+                />
+              )}
+            />
 
-          <Route
-            path="/note/:noteID"
-            render={routerProps => (
-              <Note history={routerProps.history} note={this.state.notes.find(note => note.id === routerProps.match.params.noteID)} />
-            )}
-          />
-          
-          <Route path="/folder/:folderID">
-          <Notes notes={this.state.notes} />
-          </Route>
+            <Route path="/folder/:folderID">
+              <Notes notes={this.state.notes} />
+            </Route>
 
-          <Route path="/addfolder">
-          <Route path="/addnote">
-            <AddFolder  />
-          </Route>
-
-        </Switch>
-
-
-      </main>
-    </Context.Provider>
-  );
+            <Route path="/addfolder">
+              <AddFolder />
+            </Route>
+          </Switch>
+        </main>
+      </Context.Provider>
+    );
+  }
 }
-}
+
 
 
 
