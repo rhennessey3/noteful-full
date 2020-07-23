@@ -1,32 +1,31 @@
-import React from "react";
-import dataStore from "../folders/dataStore";
-import { useParams } from "react-router-dom";
+import React from 'react'
+import { useParams, Link } from 'react-router-dom';
+import Context from "../../Context"
+import './Notes.css'
 
-export default function Notes() {
-    const { notesID } = useParams();
-    const note = dataStore.notes.map(note => {
-        if (note.folderId === notesID) {
-            return (
-                <div style={notediv1}>
-                    <h3 style={notetitle}>{note.name}</h3>
-                    <p style={notecontent}>{note.content}</p>
-                </div>
-            );
-        }
-    });
-    return <div style={notediv}>{note}</div>;
+
+export default function Notes(props) {
+    const { folderID } = useParams();
+    return (
+        <Context.Consumer>
+            {value => {
+                const note = value.notes.map(note => {
+                    if (note.folderId === folderID || !folderID) {
+                        return (
+                            <div className="notediv1">
+                                <h3 className="notetitle">
+                                    <Link to={"/note/" + note.id}>{note.name}</Link>
+                                </h3>
+                                <p className="notecontent">{note.content}</p>
+                            </div>
+                        );
+                    }
+                });
+                return (
+                    <div className="notediv">{note}</div>
+                ) 
+            }}
+        </Context.Consumer>
+    )
 }
 
-const notediv = {
-    borderStyle: "solid",
-    borderColor: "yellow",
-    width: "55%",
-    float: "right"
-};
-const notediv1 = {};
-
-const notetitle = {
-    color: "red"
-};
-
-const notecontent = {};

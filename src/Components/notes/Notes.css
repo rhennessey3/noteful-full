@@ -1,0 +1,17 @@
+
+.notediv  {
+border: 1px solid yellow;
+width: "55%";
+float: "right";
+};
+.notediv1  {
+/* border: 1px solid blue; */
+};
+
+.notetitle  {
+color: "red";
+};
+
+.notecontent  {
+
+};

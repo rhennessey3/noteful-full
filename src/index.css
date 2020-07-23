@@ -1,3 +1,15 @@
+#root{
+display: flex;
+}
+
+main  {
+/* border: solid; */
+/* border-color: red; */
+flex:2;
+display:flex;
+margin: 0 auto;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
