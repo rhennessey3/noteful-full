@@ -58,10 +58,9 @@ render() {
 
     return (
       <Context.Provider value={value}>
-        <MainNav
-          folders={folders}
-        // <AddFolder  />
-        />
+        <MainNav folders={folders} notes={notes} / >
+          
+    
         <main>
           <Switch>
             <Route exact path="/">

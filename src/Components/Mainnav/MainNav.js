@@ -23,6 +23,7 @@ export default function MainNav(props) {
             </div>
         ))
         : [];
+            console.log(noteitem.length)
     
     return (
         <aside className="nav-aside">
