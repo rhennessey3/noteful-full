@@ -5,9 +5,23 @@ import './Notes.css'
 
 
 export default function Notes(props) {
+
+    const noteitem = props.notes.length
+        ? props.notes.map(item => (
+            <div key={item.id} className="noteDiv1">
+                <h3>
+                    <Link to={`/note/${item.id}`}>{item.name}</Link>
+                </h3>
+            </div>
+        ))
+        : [];
+    console.log(noteitem.length)
+
+
     const { folderID } = useParams();
     return (
         <Context.Consumer>
+            <div className="noteDiv"> {noteitem}</div>
             {value => {
                 const note = value.notes.map(note => {
                     if (note.folderId === folderID || !folderID) {

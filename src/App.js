@@ -58,7 +58,7 @@ render() {
 
     return (
       <Context.Provider value={value}>
-        <MainNav folders={folders} notes={notes} / >
+        <MainNav folders={folders}  / >
           
     
         <main>

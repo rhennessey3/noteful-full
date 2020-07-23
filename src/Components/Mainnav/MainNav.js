@@ -14,16 +14,16 @@ export default function MainNav(props) {
         ))
         : [];
     
-    const noteitem = props.notes.length
-        ? props.notes.map(item => (
-            <div key={item.id} className="noteDiv1">
-                <h3>
-                    <Link to={`/note/${item.id}`}>{item.name}</Link>
-                </h3>
-            </div>
-        ))
-        : [];
-            console.log(noteitem.length)
+    // const noteitem = props.notes.length
+    //     ? props.notes.map(item => (
+    //         <div key={item.id} className="noteDiv1">
+    //             <h3>
+    //                 <Link to={`/note/${item.id}`}>{item.name}</Link>
+    //             </h3>
+    //         </div>
+    //     ))
+    //     : [];
+    //         console.log(noteitem.length)
     
     return (
         <aside className="nav-aside">
