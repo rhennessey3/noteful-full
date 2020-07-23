@@ -37,6 +37,7 @@ export default function Notes(props) {
                 });
                 return (
                     <div className="notediv">{note}</div>
+                    <div className="noteDiv"> {noteitem}</div>
                 ) 
             }}
         </Context.Consumer>
